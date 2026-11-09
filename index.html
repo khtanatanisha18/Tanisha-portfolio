@@ -1,106 +1,127 @@
 <!DOCTYPE html>
-<!--Section:Web Devlopment Lab 1
-Project Name:Personal Portfolio
-Page Name:Portfolio Home Page -->
-
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tanisha | My Portfolio - Lab 3</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 16px; }
+body { font-family: 'Poppins', sans-serif; font-size: 1rem; line-height: 1.6; color: #222; background: #f2f6ff; }
+header { display: flex; flex-direction: column; align-items: center; gap: 0.6em; padding: 1rem 5%; background: #0b5ed7; color: #fff; position: sticky; top: 0; z-index: 10; }
+.logo { font-size: 1.4rem; font-weight: 700; }
+nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.2em; }
+nav a { color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: 0.3s; }
+nav a:hover { color: #ffe600; transform: translateY(-2px); }
+.hero { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 2rem; padding: 3rem 5%; min-height: 80vh; background: #f2f6ff; animation: fadeIn 1s ease-in; }
+.hero-text { width: 100%; }
+.hero-text h1 { font-size: 2.4rem; line-height: 1.1; }
+.animated-text { font-size: 1.9rem; font-weight: 800; margin: 0.4em 0 0.2em; animation: colorChange 3s infinite alternate; }
+@keyframes colorChange { 0% { color: #ff6a00; } 50% { color: #ee0979; } 100% { color: #0b5ed7; } }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.hero-text p { color: #555; font-size: 0.95rem; margin-top: 0.5em; }
+.hero-img { width: 100%; }
+.hero-img img { width: 65%; max-width: 300px; border-radius: 50%; background: #bcd8ff; border: 4px solid #fff; box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
+section { padding: 2.5rem 5%; }
+section h2 { font-size: 1.5rem; margin-bottom: 1rem; }
+#about p { font-size: 0.85rem; color: #444; }
+.skills-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+.skill-card { background: #0b5ed7; color: #fff; text-align: center; padding: 1em 0.5em; border-radius: 0.4em; transition: 0.3s; }
+.skill-card:hover { transform: translateY(-5px) scale(1.03); background: #ff6a00; }
+.skill-card b { display: block; font-size: 0.9rem; }
+.skill-card span { font-size: 0.7rem; opacity: 0.9; }
+.projects-grid { display: grid; grid-template-columns: 1fr; gap: 1.2rem; }
+.project-card { background: #fff; text-align: center; padding: 2.5rem 1rem; border-radius: 0.5em; box-shadow: 0 2px 10px rgba(0,0,0,0.08); transition: 0.3s; }
+.project-card:hover { transform: translateY(-8px); box-shadow: 0 12px 25px rgba(0,0,0,0.15); }
+.project-card h3 { font-size: 0.9rem; }
+.project-card p { font-size: 0.75rem; color: #777; }
+form { display: flex; flex-direction: column; gap: 0.8rem; width: 100%; max-width: 28rem; margin: 0 auto; background: #fff; padding: 1.5rem; border-radius: 0.6em; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+form label { font-size: 0.8rem; text-align: left; font-weight: 600; }
+input, textarea { width: 100%; padding: 0.7em; font-size: 0.9rem; font-family: inherit; border: 1px solid #ccc; border-radius: 0.3em; }
+.btn { background: #0b5ed7; color: #fff; border: none; padding: 0.8em; border-radius: 0.3em; font-weight: 600; cursor: pointer; transition: 0.3s; }
+.btn:hover { background: #ff6a00; transform: scale(1.03); }
+footer { background: #0b5ed7; color: #fff; text-align: center; padding: 1rem 5%; font-size: 0.8rem; }
+.top-btn { display: block; text-align: right; padding: 0.8rem 5%; }
+.top-btn a { background: #0b5ed7; color: #fff; text-decoration: none; font-size: 0.7rem; padding: 0.5em 1em; border-radius: 0.3em; }
+@media (min-width: 768px) {
+  header { flex-direction: row; justify-content: space-between; }
+  .skills-grid { grid-template-columns: repeat(3, 1fr); }
+  .hero-text h1 { font-size: 2.8rem; }
+  .animated-text { font-size: 2.2rem; }
+}
+@media (min-width: 1024px) {
+  .hero { flex-direction: row; text-align: left; justify-content: space-between; padding: 3rem 8vw; }
+  .hero-text h1 { font-size: 3.2rem; }
+  .hero-img { text-align: right; }
+  section { padding: 2.5rem 8vw; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .project-card { width: 70%; margin: 0 auto; }
+}
+</style>
 </head>
 <body>
-<a href="#main-content">Skip to main content</a>
 
 <header>
-     <h1>Tanisha</h1>
-     
-     <nav>
-        <ul> 
-            <li><a href="#aboutme">About me</a></li>
-         <li><a href="#myprojects">My Projects</a>
-         <li><a href="#contactme">contact Me</a></li>  
-        </ul>
-     </nav>
+  <div class="logo">My Portfolio</div>
+  <nav>
+    <a href="#home">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
 </header>
-<main id="main-content">
-    <section>
-        <h2>welcome to my portfolio</h2>
-        <p>Hello!I am Tanisha,a B.Sc. Data Science student.</p>
-        <p>welcome to my personal portfolio website.</p>
-    </section>
-    
-    <section id="aboutme">
-        <h2>About Me</h2>
-        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135789.png" height="100cm">
-        <p>I am a passionate about learning web development and building creative projects</p>
-    </section>
 
+<section class="hero" id="home">
+  <div class="hero-text">
+    <h1>Hi, I am <span>Tanisha</span></h1>
+    <h2 class="animated-text">Full Stack Developer</h2>
+    <p>Building modern web applications with MERN stack.</p>
+  </div>
+  <div class="hero-img">
+    <img src=https://img.magnific.com/free-vector/woman-with-long-brown-hair-pink-shirt_90220-2940.jpg?semt=ais_hybrid&w=740&q=80alt="Tanisha Profile"> 
+  </div>
+</section>
 
+<section id="about">
+  <h2>About Me</h2>
+  <p>Hello! My name is Tanisha and I am currently learning web development. This is my first portfolio website where I showcase my passion for creating interactive and responsive web pages. I am a student at KR Manglam University, pursuing a B.Sc  degree, and I am deeply interested in technology and coding. I love exploring new skills every day, and I always aim to improve my knowledge in the field of web development. With a hardworking and consistent mindset, I am determined to grow as a developer and build creative projects that make a real impact.</p>
+</section>
 
-      <section id="myprojects">
-        <h2>My Projects</h2>
-      <ul>
-        <li><b>Portfolio Website:</b> A personal one-page website to showcase your bio,skills andand contact
-                  details.
-            </li>
-        <li><b>Medium Clone:</b>A simple blog layot that looks like medium,built only with HTML and CSS.</li>  
-        <li><b>Birthday Card</b> A creating greeting card webpage designed with HTML and CSS styling.
-        </li>  
-        <li><b>User Form:</b> A form webpage with fields like name,email,and message for practicing form 
-        handling.
-        </li>
-    </ul>
- </section>
- <h2>Technical skills</h2>
- <table border="1 " cellpadding="5">
-    <tr>
-        <th>Skill</th>
-        <th>Learning Level</th>
-    </tr>
+<section id="skills">
+  <h2>My Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-card"><b>HTML</b><span>Beginner</span></div>
+    <div class="skill-card"><b>CSS</b><span>Beginner</span></div>
+    <div class="skill-card"><b>JavaScript</b><span>Learning</span></div>
+  </div>
+</section>
 
-    <tr>
-        <td>HTML</td>
-        <td>Beginner</td>
-    </tr>
-     <tr>
-        <td>CSS</td>
-        <td>Beginner</td>
-     </tr>
-          
-      <tr>
-        <td>Javascript</td>
-         <td>Beginner</td>
-      </tr>
- </table>
+<section id="projects">
+  <h2>My Projects</h2>
+  <div class="projects-grid">
+    <div class="project-card"><h3>Project 1</h3><p>A simple HTML & CSS webpage.</p></div>
+    <div class="project-card"><h3>Project 2</h3><p>Another awesome mini project.</p></div>
+  </div>
+</section>
 
-<section id="contactme">
-    <h2>Contact Me</h2>
-    
-    <form>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" placeholder="Enter your name" required>
-
-        <br></br>
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email" required>
-        
-        <br></br>
-
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
-
-    <br></br>
-    
-    <button type="submit">Send</button>
-    </form>
-</main>
+<section id="contact">
+  <h2>Contact Me</h2>
+  <form>
+    <label>Name:</label>
+    <input type="text" placeholder="Enter your name" required>
+    <label>Email:</label>
+    <input type="email" placeholder="Enter your email" required>
+    <label>Message:</label>
+    <textarea placeholder="Write your message" rows="3" required></textarea>
+    <button type="submit" class="btn">Send</button>
+  </form>
+</section>
 
 <footer>
-    <p>&copy;2026 My Portfolio. All rights reservsd.</p>
+  <p>© 2026 Tanisha. All rights reserved.</p>
 </footer>
+<div class="top-btn"><a href="#home">↑ Back to Top</a></div>
 
 </body>
-
 </html>
